@@ -27,13 +27,23 @@ class TextFields extends StatelessWidget {
     return TextField(
       obscureText: obscureText,
       controller: controller,
-      cursorColor: Theme.of(context).primaryColor,
+      cursorColor: ColorData.primary,
       keyboardType: TextInputType.name,
       decoration: InputDecoration(
-        focusColor: ColorData.black,
-        fillColor: const Color(0xffFAFAFA),
-        filled: true,
+        enabled: true,
+        border: const UnderlineInputBorder(
+            borderSide: BorderSide(color: ColorData.primary)),
+        focusColor: ColorData.primary,
         counterText: '',
+        focusedBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(
+            color: ColorData.primary,
+            width: 1.4,
+          ),
+        ),
+        enabledBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(color: ColorData.grey),
+        ),
         suffixIcon: GestureDetector(
           onTap: () {},
           child: Padding(
@@ -42,8 +52,7 @@ class TextFields extends StatelessWidget {
           ),
         ),
         hintText: hintText,
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        contentPadding: const EdgeInsets.symmetric(vertical: 16),
         hintStyle: GoogleFonts.lato(
           color: ColorData.grey,
           fontSize: 16,
@@ -53,7 +62,7 @@ class TextFields extends StatelessWidget {
       style: GoogleFonts.lato(
         color: ColorData.black,
         fontSize: 16,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w600,
       ),
     );
   }

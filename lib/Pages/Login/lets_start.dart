@@ -1,9 +1,12 @@
+import 'package:ecommerce_app/Pages/Login/signup.dart';
 import 'package:ecommerce_app/Widgets/buttons.dart';
 import 'package:ecommerce_app/Widgets/colors.dart';
 import 'package:ecommerce_app/Widgets/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'login.dart';
 
 class LetsStart extends StatefulWidget {
   const LetsStart({Key key}) : super(key: key);
@@ -16,6 +19,7 @@ class _LetsStartState extends State<LetsStart> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFFEFEFE),
       body: SafeArea(
           child: SingleChildScrollView(
         child: Padding(
@@ -23,7 +27,12 @@ class _LetsStartState extends State<LetsStart> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SvgPicture.asset("assets/svg/Back.svg"),
+              InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: SvgPicture.asset("assets/svg/Back.svg"),
+              ),
               const SizedBox(height: 16),
               Center(
                 child: Text(
@@ -66,10 +75,17 @@ class _LetsStartState extends State<LetsStart> {
               ),
               const SizedBox(height: 32),
 
-              //GOOGLE BUTTON
+              //CREATE ACC BUTTON
               IconFilledButton(
                 textName: "Create an Account",
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SignupPage(),
+                    ),
+                  );
+                },
                 svgIcon: "",
                 textColor: ColorData.white,
                 buttonColor: ColorData.primary,
@@ -79,12 +95,12 @@ class _LetsStartState extends State<LetsStart> {
               //ALREADY HAVE ACC
               GestureDetector(
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) => const LoginPage(),
-                  //   ),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const LoginPage(),
+                    ),
+                  );
                 },
                 child: Center(
                     child: RichText(

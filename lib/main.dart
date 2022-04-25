@@ -15,6 +15,10 @@ void main() {
         speed: 5,
       ),
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        backgroundColor: const Color(0xFFFEFEFE),
+        primaryColor: ColorData.primary,
+      ),
     ),
   );
 }
