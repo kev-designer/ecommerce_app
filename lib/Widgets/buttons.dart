@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/Widgets/const.dart';
 import 'package:ecommerce_app/Widgets/text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -35,11 +36,17 @@ class FilledButton extends StatelessWidget {
       onPressed: () {
         onPressed();
       },
-      child: ButtonText(
-        textName,
-        textStyle: GoogleFonts.nunito(
-          color: textColor,
-          letterSpacing: 1,
+      child: SizedBox(
+        width: double.infinity,
+        height: 55,
+        child: Center(
+          child: ButtonText(
+            textName,
+            textStyle: GoogleFonts.nunito(
+              color: textColor,
+              letterSpacing: 1,
+            ),
+          ),
         ),
       ),
     );
@@ -76,19 +83,23 @@ class IconFilledButton extends StatelessWidget {
       onPressed: () {
         onPressed();
       },
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SvgPicture.asset(svgIcon),
-          const SizedBox(width: 12),
-          ButtonText(
-            textName,
-            textStyle: GoogleFonts.nunito(
-              color: textColor,
-              letterSpacing: 1,
+      child: SizedBox(
+        height: 55,
+        width: double.infinity,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(svgIcon),
+            const SizedBox(width: 12),
+            ButtonText(
+              textName,
+              textStyle: GoogleFonts.nunito(
+                color: textColor,
+                letterSpacing: 1,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -175,9 +186,10 @@ class PrimaryMediumButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 60,
+      width: width(context) * .36,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.only(left: 20, right: 20),
+          // padding: const EdgeInsets.only(left: 20, right: 20),
           primary: buttonColor,
           elevation: 0,
           shape: RoundedRectangleBorder(
@@ -218,9 +230,10 @@ class SecondaryMediumButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 60,
+      width: width(context) * .36,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.only(left: 20, right: 20),
+          // padding: const EdgeInsets.only(left: 20, right: 20),
           primary: buttonColor,
           elevation: 0,
           shape: RoundedRectangleBorder(

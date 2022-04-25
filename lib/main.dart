@@ -10,7 +10,7 @@ void main() {
       home: SplashScreenView(
         navigateRoute: const EcommerceApp(),
         imageSrc: "assets/logo/Logo.png",
-        imageSize: 150,
+        imageSize: 60,
         backgroundColor: ColorData.primary,
         speed: 1,
       ),
