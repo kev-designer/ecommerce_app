@@ -9,12 +9,16 @@ import 'colors.dart';
 class FilledButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String textName;
+  final String svgIcon;
+  final Color textColor;
   final Color buttonColor;
 
   const FilledButton(
       {Key key,
       @required this.textName,
       @required this.onPressed,
+      @required this.svgIcon,
+      @required this.textColor,
       @required this.buttonColor})
       : super(key: key);
 
@@ -25,42 +29,80 @@ class FilledButton extends StatelessWidget {
         primary: buttonColor,
         elevation: 0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(6.0),
+          borderRadius: BorderRadius.circular(10.0),
         ),
       ),
       onPressed: () {
         onPressed();
       },
-      child: Container(
-        alignment: Alignment.center,
-        height: 56,
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(
-            Radius.circular(6),
-          ),
-        ),
-        child: ButtonText(
-          textName,
-          textStyle: GoogleFonts.nunito(
-            color: ColorData.white,
-            letterSpacing: 1,
-          ),
+      child: ButtonText(
+        textName,
+        textStyle: GoogleFonts.nunito(
+          color: textColor,
+          letterSpacing: 1,
         ),
       ),
     );
   }
 }
 
-//BIG OUT LINE BUTTON
-class OutLinedButton extends StatelessWidget {
+//ICON BUTTON
+class IconFilledButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String textName;
   final String svgIcon;
   final Color textColor;
   final Color buttonColor;
 
-  const OutLinedButton(
+  const IconFilledButton(
+      {Key key,
+      @required this.textName,
+      @required this.onPressed,
+      @required this.svgIcon,
+      @required this.textColor,
+      @required this.buttonColor})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        primary: buttonColor,
+        elevation: 0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+      ),
+      onPressed: () {
+        onPressed();
+      },
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SvgPicture.asset(svgIcon),
+          const SizedBox(width: 12),
+          ButtonText(
+            textName,
+            textStyle: GoogleFonts.nunito(
+              color: textColor,
+              letterSpacing: 1,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+//ICON OUT LINE BUTTON
+class IconOutlinedButton extends StatelessWidget {
+  final VoidCallback onPressed;
+  final String textName;
+  final String svgIcon;
+  final Color textColor;
+  final Color buttonColor;
+
+  const IconOutlinedButton(
       {Key key,
       @required this.textName,
       @required this.onPressed,
@@ -96,12 +138,14 @@ class OutLinedButton extends StatelessWidget {
           ),
         ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SvgPicture.asset(svgIcon),
+            const SizedBox(width: 12),
             ButtonText(
               textName,
               textStyle: GoogleFonts.nunito(
-                color: ColorData.primary,
+                color: textColor,
                 letterSpacing: 1,
               ),
             ),
@@ -112,14 +156,14 @@ class OutLinedButton extends StatelessWidget {
   }
 }
 
-//MEDIUM FILLED BUTTON
-class MediumFilledButton extends StatelessWidget {
+//PRIMARY MEDIUM  BUTTON
+class PrimaryMediumButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String textName;
   final Color textColor;
   final Color buttonColor;
 
-  const MediumFilledButton(
+  const PrimaryMediumButton(
       {Key key,
       @required this.textName,
       @required this.onPressed,
@@ -130,14 +174,14 @@ class MediumFilledButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 44,
+      height: 60,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.only(left: 20, right: 20),
           primary: buttonColor,
           elevation: 0,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(6),
+            borderRadius: BorderRadius.circular(10),
           ),
         ),
         onPressed: () {
@@ -146,7 +190,7 @@ class MediumFilledButton extends StatelessWidget {
         child: ButtonText(
           textName,
           textStyle: GoogleFonts.nunito(
-            color: ColorData.white,
+            color: textColor,
             letterSpacing: 1,
           ),
         ),
@@ -155,14 +199,14 @@ class MediumFilledButton extends StatelessWidget {
   }
 }
 
-//MEDIUM OUTLINED BUTTON
-class MediumOutLinedButton extends StatelessWidget {
+//SECONDARY MEDIUM  BUTTON
+class SecondaryMediumButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String textName;
   final Color textColor;
   final Color buttonColor;
 
-  const MediumOutLinedButton(
+  const SecondaryMediumButton(
       {Key key,
       @required this.textName,
       @required this.onPressed,
@@ -173,17 +217,14 @@ class MediumOutLinedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 44,
+      height: 60,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.only(left: 20, right: 20),
           primary: buttonColor,
-          side: const BorderSide(
-            color: ColorData.primary,
-          ),
           elevation: 0,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(6.0),
+            borderRadius: BorderRadius.circular(10),
           ),
         ),
         onPressed: () {
@@ -192,7 +233,7 @@ class MediumOutLinedButton extends StatelessWidget {
         child: ButtonText(
           textName,
           textStyle: GoogleFonts.nunito(
-            color: ColorData.primary,
+            color: textColor,
             letterSpacing: 1,
           ),
         ),
@@ -205,6 +246,7 @@ class MediumOutLinedButton extends StatelessWidget {
 class SmallFilledButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String textName;
+  final String svgIcon;
   final Color textColor;
   final Color buttonColor;
 
@@ -212,6 +254,7 @@ class SmallFilledButton extends StatelessWidget {
       {Key key,
       @required this.textName,
       @required this.onPressed,
+      @required this.svgIcon,
       @required this.textColor,
       @required this.buttonColor})
       : super(key: key);
@@ -226,21 +269,28 @@ class SmallFilledButton extends StatelessWidget {
           primary: buttonColor,
           elevation: 0,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(6.0),
+            borderRadius: BorderRadius.circular(5.0),
           ),
         ),
         onPressed: () {
           onPressed();
         },
-        child: Text(
-          textName,
-          style: GoogleFonts.lato(
-            fontWeight: FontWeight.w500,
-            textStyle: GoogleFonts.lato(
-              fontSize: 15,
-              color: textColor,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(svgIcon),
+            const SizedBox(width: 8),
+            Text(
+              textName,
+              style: GoogleFonts.lato(
+                fontWeight: FontWeight.w500,
+                textStyle: GoogleFonts.lato(
+                  fontSize: 15,
+                  color: textColor,
+                ),
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );
