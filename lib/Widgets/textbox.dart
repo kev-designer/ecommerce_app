@@ -11,7 +11,6 @@ class TextFields extends StatelessWidget {
   final bool obscureText;
   final SvgPicture suffixIcon;
   final FontWeight weight;
-  final Color borderColor;
 
   const TextFields({
     Key key,
@@ -21,12 +20,11 @@ class TextFields extends StatelessWidget {
     @required this.color,
     @required this.hintText,
     @required this.weight,
-    @required this.borderColor,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
+    return TextField(
       obscureText: obscureText,
       controller: controller,
       cursorColor: Theme.of(context).primaryColor,
@@ -36,19 +34,12 @@ class TextFields extends StatelessWidget {
         fillColor: const Color(0xffFAFAFA),
         filled: true,
         counterText: '',
-        border: const OutlineInputBorder(),
         suffixIcon: GestureDetector(
           onTap: () {},
           child: Padding(
             padding: const EdgeInsets.all(14.0),
             child: suffixIcon,
           ),
-        ),
-        enabledBorder: const OutlineInputBorder(
-          borderSide: BorderSide(color: Color(0xFFE0E0E0), width: 1.8),
-        ),
-        focusedBorder: const OutlineInputBorder(
-          borderSide: BorderSide(color: Color(0xFF006EF3), width: 1.8),
         ),
         hintText: hintText,
         contentPadding:
@@ -91,8 +82,8 @@ class SearchBar extends StatelessWidget {
       width: double.infinity,
       // height: 60,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+        color: ColorData.ligthPurple,
       ),
       child: TextFormField(
         cursorColor: Theme.of(context).primaryColor,
@@ -103,27 +94,21 @@ class SearchBar extends StatelessWidget {
           suffixIcon: Padding(
             padding:
                 const EdgeInsets.only(left: 16, right: 16, top: 10, bottom: 10),
-            child: SvgPicture.asset("assets/svgs/search.svg"),
-          ),
-          enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: Color(0xFFE0E0E0), width: 1.8),
-          ),
-          focusedBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: ColorData.primary, width: 1.5),
+            child: SvgPicture.asset("assets/svg/Search.svg"),
           ),
           hintText: "Search...",
           labelStyle: GoogleFonts.lato(
-            color: ColorData.black,
+            color: ColorData.grey,
           ),
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           hintStyle: GoogleFonts.lato(
-            color: ColorData.black,
+            color: ColorData.grey,
             fontSize: 16,
           ),
         ),
         style: GoogleFonts.lato(
-          color: ColorData.black,
+          color: ColorData.grey,
           fontSize: 16,
         ),
       ),
