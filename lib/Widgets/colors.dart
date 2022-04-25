@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class ColorData {
   static const primary = Color(0xFF9775FA);
+  static const ligthPurple = Color(0xFFF6F2FF);
   static const secondary = Color(0xFFF5F6FA);
   static const white = Color(0xFFFFFFFF);
   static const black = Color(0xFF242424);

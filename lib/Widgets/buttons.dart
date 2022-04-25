@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/Widgets/text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'colors.dart';
@@ -55,6 +56,7 @@ class FilledButton extends StatelessWidget {
 class OutLinedButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String textName;
+  final String svgIcon;
   final Color textColor;
   final Color buttonColor;
 
@@ -62,6 +64,7 @@ class OutLinedButton extends StatelessWidget {
       {Key key,
       @required this.textName,
       @required this.onPressed,
+      @required this.svgIcon,
       @required this.textColor,
       @required this.buttonColor})
       : super(key: key);
@@ -72,11 +75,11 @@ class OutLinedButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         primary: buttonColor,
         side: const BorderSide(
-          color: ColorData.black,
+          color: ColorData.primary,
         ),
         elevation: 0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(4.0),
+          borderRadius: BorderRadius.circular(10.0),
         ),
       ),
       onPressed: () {
@@ -87,16 +90,22 @@ class OutLinedButton extends StatelessWidget {
         height: 50,
         width: double.infinity,
         decoration: const BoxDecoration(
+          color: ColorData.ligthPurple,
           borderRadius: BorderRadius.all(
-            Radius.circular(4),
+            Radius.circular(10),
           ),
         ),
-        child: ButtonText(
-          textName,
-          textStyle: GoogleFonts.nunito(
-            color: ColorData.black,
-            letterSpacing: 1,
-          ),
+        child: Row(
+          children: [
+            SvgPicture.asset(svgIcon),
+            ButtonText(
+              textName,
+              textStyle: GoogleFonts.nunito(
+                color: ColorData.primary,
+                letterSpacing: 1,
+              ),
+            ),
+          ],
         ),
       ),
     );
