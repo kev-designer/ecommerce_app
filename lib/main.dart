@@ -15,9 +15,6 @@ void main() {
         speed: 1,
       ),
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        scaffoldBackgroundColor: ColorData.primary,
-      ),
     ),
   );
 }
