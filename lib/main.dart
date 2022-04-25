@@ -12,7 +12,7 @@ void main() {
         imageSrc: "assets/logo/Logo.png",
         imageSize: 60,
         backgroundColor: ColorData.primary,
-        speed: 1,
+        speed: 5,
       ),
       debugShowCheckedModeBanner: false,
     ),
