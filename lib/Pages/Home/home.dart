@@ -2,8 +2,11 @@ import 'package:ecommerce_app/Widgets/colors.dart';
 import 'package:ecommerce_app/Widgets/const.dart';
 import 'package:ecommerce_app/Widgets/textbox.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../Data/new_arrival_data.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
@@ -15,6 +18,12 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
   List<String> inStockCategoriesList = ["Adidas", "Nike", "Fila", "Puma"];
+  List<String> inStockCategoriesImage = [
+    "assets/svg/Addidas.svg",
+    "assets/svg/Nike.svg",
+    "assets/svg/fiila.svg",
+    "assets/svg/Puma.svg"
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -112,18 +121,33 @@ class _HomePageState extends State<HomePage> {
                       child: Container(
                         margin: const EdgeInsets.only(right: 16),
                         padding: const EdgeInsets.only(
-                            left: 12, right: 12, top: 11, bottom: 12),
+                            left: 10, right: 10, top: 8, bottom: 8),
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            color: ColorData.secondary
+                            borderRadius: BorderRadius.circular(12),
+                            color: _currentIndex == index
+                                ? ColorData.primary
+                                : ColorData.secondary
                             // color: Theme.of(context).primaryColor,
                             ),
-                        child: Text(
-                          inStockCategoriesList[index],
-                          style: GoogleFonts.lato(
-                            fontSize: height(context) * .02,
-                            color: ColorData.black,
-                          ),
+                        child: Row(
+                          children: [
+                            SvgPicture.asset(
+                              inStockCategoriesImage[index],
+                            ),
+                            const SizedBox(width: 8),
+                            Text(
+                              inStockCategoriesList[index],
+                              style: GoogleFonts.lato(
+                                fontSize: height(context) * .02,
+                                color: _currentIndex == index
+                                    ? ColorData.white
+                                    : ColorData.black,
+                                fontWeight: _currentIndex == index
+                                    ? FontWeight.w600
+                                    : FontWeight.w500,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -131,6 +155,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               const SizedBox(height: 20),
+
               //TEXT
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -154,6 +179,36 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
+              const SizedBox(height: 20),
+
+              AlignedGridView.count(
+                crossAxisCount: 2,
+                mainAxisSpacing: 24,
+                crossAxisSpacing: 24,
+                scrollDirection: Axis.vertical,
+                physics: const ScrollPhysics(),
+                itemCount: newArrivalDataList.length,
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  NewArrivalData newArrivalData = newArrivalDataList[index];
+                  return Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        height: 220,
+                        width: 200,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: ColorData.primary,
+                            image: DecorationImage(
+                              image: AssetImage(newArrivalData.image),
+                            )),
+                      ),
+                    ],
+                  );
+                },
+              ),
+
               const SizedBox(height: 20),
             ],
           ),
