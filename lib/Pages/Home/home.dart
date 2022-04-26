@@ -143,7 +143,7 @@ class _HomePageState extends State<HomePage> {
                                     ? ColorData.white
                                     : ColorData.black,
                                 fontWeight: _currentIndex == index
-                                    ? FontWeight.w600
+                                    ? FontWeight.w500
                                     : FontWeight.w500,
                               ),
                             ),
@@ -180,11 +180,10 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               const SizedBox(height: 20),
-
               AlignedGridView.count(
                 crossAxisCount: 2,
-                mainAxisSpacing: 24,
-                crossAxisSpacing: 24,
+                mainAxisSpacing: 20,
+                crossAxisSpacing: 20,
                 scrollDirection: Axis.vertical,
                 physics: const ScrollPhysics(),
                 itemCount: newArrivalDataList.length,
@@ -200,7 +199,7 @@ class _HomePageState extends State<HomePage> {
                             height: 220,
                             width: 190,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.circular(12),
                               image: DecorationImage(
                                 image: AssetImage(newArrivalData.image),
                                 fit: BoxFit.cover,
@@ -208,7 +207,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                           Positioned(
-                            top: 16,
+                            top: 12,
                             right: 12,
                             child: SvgPicture.asset(
                               "assets/svg/Heart.svg",
@@ -241,7 +240,6 @@ class _HomePageState extends State<HomePage> {
                   );
                 },
               ),
-
               const SizedBox(height: 20),
             ],
           ),

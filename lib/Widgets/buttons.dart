@@ -262,27 +262,29 @@ class SmallFilledButton extends StatelessWidget {
   final String svgIcon;
   final Color textColor;
   final Color buttonColor;
+  final Color svgColor;
 
-  const SmallFilledButton(
-      {Key key,
-      @required this.textName,
-      @required this.onPressed,
-      @required this.svgIcon,
-      @required this.textColor,
-      @required this.buttonColor})
-      : super(key: key);
+  const SmallFilledButton({
+    Key key,
+    @required this.textName,
+    @required this.onPressed,
+    @required this.svgIcon,
+    @required this.textColor,
+    @required this.svgColor,
+    @required this.buttonColor,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 36,
+      height: 40,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.only(left: 12, right: 12),
           primary: buttonColor,
           elevation: 0,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(5.0),
+            borderRadius: BorderRadius.circular(7.0),
           ),
         ),
         onPressed: () {
@@ -291,14 +293,18 @@ class SmallFilledButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(svgIcon),
+            SvgPicture.asset(
+              svgIcon,
+              color: svgColor,
+              height: 20,
+            ),
             const SizedBox(width: 8),
             Text(
               textName,
               style: GoogleFonts.lato(
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w600,
                 textStyle: GoogleFonts.lato(
-                  fontSize: 15,
+                  fontSize: 16,
                   color: textColor,
                 ),
               ),
