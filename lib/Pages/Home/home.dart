@@ -192,18 +192,51 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (context, index) {
                   NewArrivalData newArrivalData = newArrivalDataList[index];
                   return Column(
-                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                          height: 220,
-                          width: 200,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: ColorData.primary,
+                      Stack(
+                        children: [
+                          Container(
+                            height: 220,
+                            width: 190,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              image: DecorationImage(
+                                image: AssetImage(newArrivalData.image),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
                           ),
-                          child: Image(
-                            image: AssetImage(newArrivalData.image),
-                          )),
+                          Positioned(
+                            top: 16,
+                            right: 12,
+                            child: SvgPicture.asset(
+                              "assets/svg/Heart.svg",
+                              height: 30,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        newArrivalData.name,
+                        style: GoogleFonts.lato(
+                          fontSize: height(context) * .017,
+                          color: ColorData.black,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        newArrivalData.price,
+                        style: GoogleFonts.lato(
+                          fontSize: height(context) * .02,
+                          color: ColorData.primary,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ],
                   );
                 },
