@@ -86,7 +86,7 @@ class _StartScreenState extends State<StartScreen> {
                       child: Text(
                         "Skip".toUpperCase(),
                         style: GoogleFonts.lato(
-                          fontSize: height(context) * .022,
+                          fontSize: height(context) * .02,
                           color: ColorData.grey,
                           fontWeight: FontWeight.w400,
                         ),
