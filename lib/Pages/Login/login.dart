@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/Pages/Bottom%20Nav/bottom_navbar.dart';
 import 'package:ecommerce_app/Widgets/colors.dart';
 import 'package:ecommerce_app/Widgets/const.dart';
 import 'package:ecommerce_app/Widgets/textbox.dart';
@@ -159,12 +160,12 @@ class _LoginPageState extends State<LoginPage> {
               IconFilledButton(
                 textName: "Login",
                 onPressed: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) => const SignupPage(),
-                  //   ),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const NavBar(),
+                    ),
+                  );
                 },
                 svgIcon: "",
                 textColor: ColorData.white,
