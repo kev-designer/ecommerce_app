@@ -53,7 +53,7 @@ class _SignupPageState extends State<SignupPage> {
                 "Username",
                 style: GoogleFonts.lato(
                   color: ColorData.grey,
-                  fontSize: 16,
+                  fontSize: 14,
                 ),
               ),
               TextFields(
@@ -71,13 +71,16 @@ class _SignupPageState extends State<SignupPage> {
                 "Password",
                 style: GoogleFonts.lato(
                   color: ColorData.grey,
-                  fontSize: 16,
+                  fontSize: 14,
                 ),
               ),
               TextFields(
                 controller: password,
                 obscureText: true,
-                suffixIcon: null,
+                suffixIcon: SvgPicture.asset(
+                  "assets/svg/eye.svg",
+                  color: ColorData.primary,
+                ),
                 color: ColorData.black,
                 hintText: "Enter Passowrd",
                 weight: FontWeight.w600,
@@ -89,7 +92,7 @@ class _SignupPageState extends State<SignupPage> {
                 "Email Address",
                 style: GoogleFonts.lato(
                   color: ColorData.grey,
-                  fontSize: 16,
+                  fontSize: 14,
                 ),
               ),
               TextFields(

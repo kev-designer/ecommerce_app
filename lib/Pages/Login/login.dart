@@ -6,6 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../Widgets/buttons.dart';
+import 'forgot_password.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key key}) : super(key: key);
@@ -64,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                 "Username",
                 style: GoogleFonts.lato(
                   color: ColorData.grey,
-                  fontSize: 16,
+                  fontSize: 14,
                 ),
               ),
               TextFields(
@@ -82,13 +83,16 @@ class _LoginPageState extends State<LoginPage> {
                 "Password",
                 style: GoogleFonts.lato(
                   color: ColorData.grey,
-                  fontSize: 16,
+                  fontSize: 14,
                 ),
               ),
               TextFields(
                 controller: password,
                 obscureText: true,
-                suffixIcon: SvgPicture.asset("assets/svg/eye.svg"),
+                suffixIcon: SvgPicture.asset(
+                  "assets/svg/eye.svg",
+                  color: ColorData.primary,
+                ),
                 color: ColorData.black,
                 hintText: "Enter Passowrd",
                 weight: FontWeight.w600,
@@ -101,7 +105,7 @@ class _LoginPageState extends State<LoginPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const LoginPage(),
+                        builder: (context) => const ForgotPassword(),
                       ),
                     );
                   },
