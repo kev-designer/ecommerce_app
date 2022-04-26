@@ -16,7 +16,7 @@ void main() {
       ),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        backgroundColor: const Color(0xFFFEFEFE),
+        // backgroundColor: const Color(0xFFFEFEFE),
         primaryColor: ColorData.primary,
       ),
     ),

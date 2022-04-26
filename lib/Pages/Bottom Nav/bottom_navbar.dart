@@ -19,7 +19,7 @@ class NavBar extends StatefulWidget {
 class _NavBarState extends State<NavBar> {
   bool keyboardOpen = false;
 
-  int currentTab = 0;
+  int currentTab = 1;
   final List<Widget> screens = [
     const HomePage(),
     const WishlistPage(),
@@ -37,159 +37,134 @@ class _NavBarState extends State<NavBar> {
         bucket: bucket,
       ),
       bottomNavigationBar: BottomAppBar(
-        elevation: 6,
-        shape: const CircularNotchedRectangle(),
-        notchMargin: 10,
-        child: SizedBox(
-          height: 70,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              MaterialButton(
-                minWidth: 1,
-                onPressed: () {
-                  setState(
-                    () {
-                      currentScreen = const HomePage();
-                      currentTab = 1;
-                    },
-                  );
-                },
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset(
-                      "assets/svg/1home.svg",
-                      color:
-                          currentTab == 1 ? ColorData.primary : ColorData.grey,
-                    ),
-                    const SizedBox(
-                      height: 6,
-                    ),
-                    Text(
-                      "Home",
-                      style: GoogleFonts.lato(
-                        fontWeight:
-                            currentTab == 1 ? FontWeight.w400 : FontWeight.w400,
-                        fontSize: height(context) * .013,
-                        color: currentTab == 1
-                            ? ColorData.primary
-                            : ColorData.grey,
-                      ),
-                    ),
-                  ],
+        // color: const Color(0xFFFEFEFE),
+        elevation: 10,
+        child: Padding(
+          padding: const EdgeInsets.only(left: 16, right: 16),
+          child: SizedBox(
+            height: 70,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                MaterialButton(
+                  minWidth: 1,
+                  onPressed: () {
+                    setState(
+                      () {
+                        currentScreen = const HomePage();
+                        currentTab = 1;
+                      },
+                    );
+                  },
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      currentTab == 1
+                          ? Text(
+                              "Home",
+                              style: GoogleFonts.lato(
+                                color: ColorData.primary,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            )
+                          : SvgPicture.asset(
+                              "assets/svg/1home.svg",
+                            ),
+                    ],
+                  ),
                 ),
-              ),
-
-              //WISHLIST
-              MaterialButton(
-                minWidth: 1,
-                onPressed: () {
-                  setState(
-                    () {
-                      currentScreen = const WishlistPage();
-                      currentTab = 2;
-                    },
-                  );
-                },
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset(
-                      "assets/svg/2wishlist.svg",
-                      color:
-                          currentTab == 2 ? ColorData.primary : ColorData.grey,
-                    ),
-                    const SizedBox(
-                      height: 6,
-                    ),
-                    Text(
-                      "Wishlist",
-                      style: GoogleFonts.lato(
-                        fontSize: height(context) * .013,
-                        fontWeight:
-                            currentTab == 2 ? FontWeight.w400 : FontWeight.w400,
-                        color: currentTab == 2
-                            ? ColorData.primary
-                            : ColorData.grey,
-                      ),
-                    ),
-                  ],
+                MaterialButton(
+                  minWidth: 1,
+                  onPressed: () {
+                    setState(
+                      () {
+                        currentScreen = const WishlistPage();
+                        currentTab = 2;
+                      },
+                    );
+                  },
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      currentTab == 2
+                          ? Text(
+                              "Wishlist",
+                              style: GoogleFonts.lato(
+                                color: ColorData.primary,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            )
+                          : SvgPicture.asset(
+                              "assets/svg/2wishlist.svg",
+                            ),
+                    ],
+                  ),
                 ),
-              ),
-              MaterialButton(
-                minWidth: 1,
-                onPressed: () {
-                  setState(
-                    () {
-                      currentScreen = const BagPage();
-                      currentTab = 3;
-                    },
-                  );
-                },
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset(
-                      "assets/svg/3bag.svg",
-                      color:
-                          currentTab == 3 ? ColorData.primary : ColorData.grey,
-                    ),
-                    const SizedBox(
-                      height: 6,
-                    ),
-                    Text(
-                      "Bag",
-                      style: GoogleFonts.lato(
-                        fontSize: height(context) * .013,
-                        fontWeight:
-                            currentTab == 3 ? FontWeight.w400 : FontWeight.w400,
-                        color: currentTab == 3
-                            ? ColorData.primary
-                            : ColorData.grey,
-                      ),
-                    ),
-                  ],
+                MaterialButton(
+                  minWidth: 1,
+                  onPressed: () {
+                    setState(
+                      () {
+                        currentScreen = const BagPage();
+                        currentTab = 3;
+                      },
+                    );
+                  },
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      currentTab == 3
+                          ? Text(
+                              "Bag",
+                              style: GoogleFonts.lato(
+                                color: ColorData.primary,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            )
+                          : SvgPicture.asset(
+                              "assets/svg/3bag.svg",
+                            ),
+                    ],
+                  ),
                 ),
-              ),
-
-              //WALLET
-              MaterialButton(
-                minWidth: 1,
-                onPressed: () {
-                  setState(
-                    () {
-                      currentScreen = const WalletPage();
-                      currentTab = 4;
-                    },
-                  );
-                },
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset(
-                      "assets/svg/4wallet.svg",
-                      color:
-                          currentTab == 4 ? ColorData.primary : ColorData.grey,
-                    ),
-                    const SizedBox(
-                      height: 6,
-                    ),
-                    Text(
-                      "Wallet",
-                      style: GoogleFonts.lato(
-                        fontSize: height(context) * .013,
-                        fontWeight:
-                            currentTab == 4 ? FontWeight.w400 : FontWeight.w400,
-                        color: currentTab == 4
-                            ? ColorData.primary
-                            : ColorData.grey,
-                      ),
-                    ),
-                  ],
-                ),
-              )
-            ],
+                MaterialButton(
+                  minWidth: 1,
+                  onPressed: () {
+                    setState(
+                      () {
+                        currentScreen = const WalletPage();
+                        currentTab = 4;
+                      },
+                    );
+                  },
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      currentTab == 4
+                          ? Text(
+                              "Wallet",
+                              style: GoogleFonts.lato(
+                                color: ColorData.primary,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            )
+                          : SvgPicture.asset(
+                              "assets/svg/4wallet.svg",
+                            ),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
