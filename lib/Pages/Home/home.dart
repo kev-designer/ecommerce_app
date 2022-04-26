@@ -195,15 +195,15 @@ class _HomePageState extends State<HomePage> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Container(
-                        height: 220,
-                        width: 200,
-                        decoration: BoxDecoration(
+                          height: 220,
+                          width: 200,
+                          decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             color: ColorData.primary,
-                            image: DecorationImage(
-                              image: AssetImage(newArrivalData.image),
-                            )),
-                      ),
+                          ),
+                          child: Image(
+                            image: AssetImage(newArrivalData.image),
+                          )),
                     ],
                   );
                 },
