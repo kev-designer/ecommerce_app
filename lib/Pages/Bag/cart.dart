@@ -6,7 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../Data/new_arrival_data.dart';
-import 'Checkout/address.dart';
+import 'Checkout/order_confirmed.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({Key key}) : super(key: key);
@@ -441,7 +441,7 @@ class _CartPageState extends State<CartPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const AddressPage(),
+                        builder: (context) => const OrderConfirmed(),
                       ),
                     );
                   },

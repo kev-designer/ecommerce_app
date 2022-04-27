@@ -1,8 +1,10 @@
 import 'package:ecommerce_app/Widgets/buttons.dart';
 import 'package:ecommerce_app/Widgets/colors.dart';
 import 'package:ecommerce_app/Widgets/const.dart';
+import 'package:ecommerce_app/Widgets/textbox.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AddressPage extends StatefulWidget {
@@ -13,6 +15,13 @@ class AddressPage extends StatefulWidget {
 }
 
 class _AddressPageState extends State<AddressPage> {
+  TextEditingController name = TextEditingController();
+  TextEditingController country = TextEditingController();
+  TextEditingController city = TextEditingController();
+  TextEditingController phnNumber = TextEditingController();
+  TextEditingController address = TextEditingController();
+  bool status = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,14 +42,141 @@ class _AddressPageState extends State<AddressPage> {
                       },
                       child: SvgPicture.asset("assets/svg/Back.svg"),
                     ),
-                    Center(child: Text("Address"))
+                    const SizedBox(width: 20),
+                    Text(
+                      "Address",
+                      style: GoogleFonts.lato(
+                        fontSize: height(context) * .022,
+                        color: ColorData.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )
                   ],
+                ),
+                const SizedBox(height: 40),
+
+                //NAME
+                Text(
+                  "Name",
+                  style: GoogleFonts.lato(
+                    color: ColorData.grey,
+                    fontSize: 14,
+                  ),
+                ),
+                TextFields(
+                  controller: name,
+                  obscureText: false,
+                  suffixIcon: null,
+                  color: ColorData.black,
+                  hintText: "Enter Name",
+                  weight: FontWeight.w600,
                 ),
                 const SizedBox(height: 20),
 
-                const SizedBox(height: 40),
+                //COUNTRY
+                Text(
+                  "Country",
+                  style: GoogleFonts.lato(
+                    color: ColorData.grey,
+                    fontSize: 14,
+                  ),
+                ),
+                TextFields(
+                  controller: country,
+                  obscureText: false,
+                  suffixIcon: null,
+                  color: ColorData.black,
+                  hintText: "Enter Country",
+                  weight: FontWeight.w600,
+                ),
+                const SizedBox(height: 20),
 
-                //CHECK OUT BUTTON
+                //CITY
+                Text(
+                  "City",
+                  style: GoogleFonts.lato(
+                    color: ColorData.grey,
+                    fontSize: 14,
+                  ),
+                ),
+                TextFields(
+                  controller: city,
+                  obscureText: false,
+                  suffixIcon: null,
+                  color: ColorData.black,
+                  hintText: "Enter City",
+                  weight: FontWeight.w600,
+                ),
+                const SizedBox(height: 20),
+
+                //PHONE NUMBER
+                Text(
+                  "Phone Number",
+                  style: GoogleFonts.lato(
+                    color: ColorData.grey,
+                    fontSize: 14,
+                  ),
+                ),
+                TextFields(
+                  controller: phnNumber,
+                  obscureText: false,
+                  suffixIcon: null,
+                  color: ColorData.black,
+                  hintText: "Enter Phone Number",
+                  weight: FontWeight.w600,
+                ),
+                const SizedBox(height: 20),
+
+                //ADDRESS
+                Text(
+                  "Address",
+                  style: GoogleFonts.lato(
+                    color: ColorData.grey,
+                    fontSize: 14,
+                  ),
+                ),
+                TextFields(
+                  controller: address,
+                  obscureText: false,
+                  suffixIcon: null,
+                  color: ColorData.black,
+                  hintText: "Enter Address",
+                  weight: FontWeight.w600,
+                ),
+                const SizedBox(height: 20),
+
+                //SAVE ADD
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Sace as primary address",
+                      style: GoogleFonts.lato(
+                        fontSize: height(context) * .018,
+                        color: ColorData.black,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    FlutterSwitch(
+                      width: 38,
+                      height: 25,
+                      toggleSize: 20,
+                      value: status,
+                      activeColor: ColorData.green,
+                      borderRadius: 20.0,
+                      padding: 2.7,
+                      showOnOff: false,
+                      onToggle: (val) {
+                        setState(() {
+                          status = val;
+                        });
+                      },
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 48),
+
+                //SAVE ADD BUTTON
                 IconFilledButton(
                   textName: "Save Address",
                   onPressed: () {},
