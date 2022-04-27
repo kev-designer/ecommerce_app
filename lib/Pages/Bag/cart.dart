@@ -2,20 +2,19 @@ import 'package:ecommerce_app/Widgets/buttons.dart';
 import 'package:ecommerce_app/Widgets/colors.dart';
 import 'package:ecommerce_app/Widgets/const.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../Data/new_arrival_data.dart';
 
-class WishlistPage extends StatefulWidget {
-  const WishlistPage({Key key}) : super(key: key);
+class CartPage extends StatefulWidget {
+  const CartPage({Key key}) : super(key: key);
 
   @override
-  State<WishlistPage> createState() => _WishlistPageState();
+  State<CartPage> createState() => _CartPageState();
 }
 
-class _WishlistPageState extends State<WishlistPage> {
+class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +45,7 @@ class _WishlistPageState extends State<WishlistPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Wishlist",
+                        "Cart",
                         style: GoogleFonts.lato(
                           fontSize: height(context) * .022,
                           color: ColorData.black,
@@ -55,7 +54,7 @@ class _WishlistPageState extends State<WishlistPage> {
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        "10 Items",
+                        "2 Items",
                         style: GoogleFonts.lato(
                           fontSize: height(context) * .02,
                           color: ColorData.grey,
@@ -76,16 +75,12 @@ class _WishlistPageState extends State<WishlistPage> {
                 ],
               ),
 
-              AlignedGridView.count(
-                crossAxisCount: 2,
-                mainAxisSpacing: 20,
-                crossAxisSpacing: 20,
+              ListView.builder(
                 scrollDirection: Axis.vertical,
                 physics: const ScrollPhysics(),
-                itemCount: wishlistDataList.length,
+                itemCount: cartDataList.length,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
-                  WishlistData wishlistData = wishlistDataList[index];
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -93,13 +88,10 @@ class _WishlistPageState extends State<WishlistPage> {
                         children: [
                           Container(
                             height: 220,
-                            width: 190,
+                            width: double.infinity,
                             decoration: BoxDecoration(
+                              border: Border.all(color: ColorData.secondary),
                               borderRadius: BorderRadius.circular(12),
-                              image: DecorationImage(
-                                image: AssetImage(wishlistData.image),
-                                fit: BoxFit.cover,
-                              ),
                             ),
                           ),
                           Positioned(
@@ -112,26 +104,26 @@ class _WishlistPageState extends State<WishlistPage> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 8),
-                      Text(
-                        wishlistData.name,
-                        style: GoogleFonts.lato(
-                          fontSize: height(context) * .017,
-                          color: ColorData.black,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        wishlistData.price,
-                        style: GoogleFonts.lato(
-                          fontSize: height(context) * .02,
-                          color: ColorData.primary,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      // const SizedBox(height: 8),
+                      // Text(
+                      //   wishlistData.name,
+                      //   style: GoogleFonts.lato(
+                      //     fontSize: height(context) * .017,
+                      //     color: ColorData.black,
+                      //     fontWeight: FontWeight.w500,
+                      //   ),
+                      //   overflow: TextOverflow.ellipsis,
+                      //   maxLines: 1,
+                      // ),
+                      // const SizedBox(height: 8),
+                      // Text(
+                      //   wishlistData.price,
+                      //   style: GoogleFonts.lato(
+                      //     fontSize: height(context) * .02,
+                      //     color: ColorData.primary,
+                      //     fontWeight: FontWeight.bold,
+                      //   ),
+                      // ),
                     ],
                   );
                 },

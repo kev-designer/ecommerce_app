@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SvgPicture.asset("assets/svg/Menu.svg"),
-                  SvgPicture.asset("assets/svg/Cart.svg"),
+                  // SvgPicture.asset("assets/svg/Cart.svg"),
                 ],
               ),
               const SizedBox(height: 20),

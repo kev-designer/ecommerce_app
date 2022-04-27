@@ -101,3 +101,37 @@ List<WishlistData> wishlistDataList = [
     image: "assets/images/16.jpeg",
   ),
 ];
+
+//CART DATA
+class CartData {
+  String name;
+  String brand;
+  String price;
+  String image;
+  String item;
+
+  CartData({
+    @required this.name,
+    @required this.brand,
+    @required this.price,
+    @required this.image,
+    @required this.item,
+  });
+}
+
+List<CartData> cartDataList = [
+  CartData(
+    name: "Nike Sportswear Fleece",
+    brand: "Nike",
+    price: "\$30 (-\$4.00 Tax)",
+    image: "assets/images/11.jpeg",
+    item: "2"
+  ),
+  CartData(
+    name: "Nike Pink Top",
+    brand: "Nike",
+     price: "\$23 (-\$9.00 Tax)",
+    image: "assets/images/12.jpeg",
+    item: "1"
+  ),
+];

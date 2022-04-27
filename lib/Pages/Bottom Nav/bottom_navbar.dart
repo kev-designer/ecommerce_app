@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/Pages/Bag/bag.dart';
+import 'package:ecommerce_app/Pages/Bag/cart.dart';
 import 'package:ecommerce_app/Pages/Home/home.dart';
 import 'package:ecommerce_app/Pages/Wallet/wallet.dart';
 import 'package:ecommerce_app/Pages/Wishlist/wishlist.dart';
@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../Widgets/const.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({Key key}) : super(key: key);
@@ -23,7 +22,7 @@ class _NavBarState extends State<NavBar> {
   final List<Widget> screens = [
     const HomePage(),
     const WishlistPage(),
-    const BagPage(),
+    const CartPage(),
     const WalletPage(),
   ];
 
@@ -110,7 +109,7 @@ class _NavBarState extends State<NavBar> {
                   onPressed: () {
                     setState(
                       () {
-                        currentScreen = const BagPage();
+                        currentScreen = const CartPage();
                         currentTab = 3;
                       },
                     );
@@ -121,7 +120,7 @@ class _NavBarState extends State<NavBar> {
                     children: [
                       currentTab == 3
                           ? Text(
-                              "Bag",
+                              "Cart",
                               style: GoogleFonts.lato(
                                 color: ColorData.primary,
                                 fontSize: 14,
