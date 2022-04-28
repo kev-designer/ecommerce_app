@@ -6,28 +6,28 @@ class NewArrivalData {
   String brand;
   String tax;
   String totalAmount;
-  String smallSize;
-  String mediumSize;
-  String largeSize;
-  String extraLargeSize;
-  String doubleLargeSize;
+  String review;
   String price;
   String des;
   String image;
+  String revierName;
+  String revierImage;
+  String rating;
+  String dateTime;
 
   NewArrivalData({
     @required this.name,
+    @required this.review,
     @required this.brand,
     @required this.tax,
     @required this.price,
     @required this.image,
     @required this.totalAmount,
-    @required this.smallSize,
-    @required this.largeSize,
-    @required this.extraLargeSize,
-    @required this.doubleLargeSize,
-    @required this.mediumSize,
     @required this.des,
+    @required this.revierName,
+    @required this.revierImage,
+    @required this.dateTime,
+    @required this.rating,
   });
 }
 
@@ -39,11 +39,12 @@ List<NewArrivalData> newArrivalDataList = [
     tax: "\$21",
     totalAmount: "\$120",
     image: "assets/images/1.jpeg",
-    smallSize: "S",
-    mediumSize: "M",
-    largeSize: "L",
-    extraLargeSize: "XL",
-    doubleLargeSize: "2XL",
+    revierImage: "assets/images/13.jpeg",
+    dateTime: "13 Sept, 2020",
+    revierName: "John Smith",
+    rating: "4.8",
+    review:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque malesuada eget vitae amet...",
     des:
         "The Nike Throwback Pullover Hoodie is made from premium French terry fabric that blends a performance feels good.",
   ),
@@ -54,11 +55,12 @@ List<NewArrivalData> newArrivalDataList = [
     brand: "Nike",
     tax: "\$21",
     totalAmount: "\$40",
-    smallSize: "S",
-    mediumSize: "M",
-    largeSize: "L",
-    extraLargeSize: "XL",
-    doubleLargeSize: "2XL",
+    revierImage: "assets/images/14.jpeg",
+    dateTime: "20 Oct, 2020",
+    revierName: "Leaila Smith",
+    rating: "3.8",
+    review:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque malesuada eget vitae amet...",
     des:
         "The Nike Throwback Pullover Hoodie is made from premium French terry fabric that blends a performance feels good.",
   ),
@@ -69,11 +71,12 @@ List<NewArrivalData> newArrivalDataList = [
     brand: "Adidas",
     tax: "\$21",
     totalAmount: "\$46",
-    smallSize: "S",
-    mediumSize: "M",
-    largeSize: "L",
-    extraLargeSize: "XL",
-    doubleLargeSize: "2XL",
+    revierImage: "assets/images/15.jpeg",
+    dateTime: "06 Apr, 2020",
+    revierName: "Alex",
+    rating: "4.8",
+    review:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque malesuada eget vitae amet...",
     des:
         "The Adidas Throwback Pullover Hoodie is made from premium French terry fabric that blends a performance feels good.",
   ),
@@ -84,11 +87,12 @@ List<NewArrivalData> newArrivalDataList = [
     brand: "Nike",
     tax: "\$21",
     totalAmount: "\$120",
-    smallSize: "S",
-    mediumSize: "M",
-    largeSize: "L",
-    extraLargeSize: "XL",
-    doubleLargeSize: "2XL",
+    revierImage: "assets/images/16.jpeg",
+    dateTime: "25 Aug, 2020",
+    revierName: "Katrina",
+    rating: "4.0",
+    review:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque malesuada eget vitae amet...",
     des:
         "The Nike Throwback Pullover Jacket is made from premium French terry fabric that blends a performance feels good.",
   ),
