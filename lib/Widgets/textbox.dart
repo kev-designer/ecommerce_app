@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'colors.dart';
 
-//ALL TEXT FIELDS
+//ALL LINED TEXT FIELDS
 class TextFields extends StatelessWidget {
   final TextEditingController controller;
   final Color color;
@@ -63,6 +63,58 @@ class TextFields extends StatelessWidget {
         color: ColorData.black,
         fontSize: 16,
         fontWeight: FontWeight.w600,
+      ),
+    );
+  }
+}
+
+//BOX TEXT FIELDS
+class BoxTextFields extends StatelessWidget {
+  final String hintText;
+  final TextEditingController controller;
+
+  const BoxTextFields({
+    Key key,
+    @required this.hintText,
+    @required this.controller,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        color: ColorData.secondary,
+      ),
+      child: TextFormField(
+        cursorColor: Theme.of(context).primaryColor,
+        keyboardType: TextInputType.text,
+        decoration: InputDecoration(
+          counterText: '',
+          border: InputBorder.none,
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: const BorderSide(
+              color: ColorData.primary,
+              width: 1.4,
+            ),
+          ),
+          hintText: hintText,
+          labelStyle: GoogleFonts.lato(
+            color: ColorData.grey,
+          ),
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+          hintStyle: GoogleFonts.lato(
+            color: ColorData.grey,
+            fontSize: 18,
+          ),
+        ),
+        style: GoogleFonts.lato(
+          color: ColorData.black,
+          fontSize: 18,
+        ),
       ),
     );
   }

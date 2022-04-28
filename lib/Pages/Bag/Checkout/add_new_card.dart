@@ -110,13 +110,10 @@ class _AddNewCardState extends State<AddNewCard> {
                     fontSize: 14,
                   ),
                 ),
-                TextFields(
+                const SizedBox(height: 12),
+                BoxTextFields(
                   controller: cardOwner,
-                  obscureText: false,
-                  suffixIcon: null,
-                  color: ColorData.black,
                   hintText: "Enter Card Owner",
-                  weight: FontWeight.w600,
                 ),
                 const SizedBox(height: 20),
 
@@ -128,13 +125,10 @@ class _AddNewCardState extends State<AddNewCard> {
                     fontSize: 14,
                   ),
                 ),
-                TextFields(
+                const SizedBox(height: 12),
+                BoxTextFields(
                   controller: cardNumber,
-                  obscureText: false,
-                  suffixIcon: null,
-                  color: ColorData.black,
                   hintText: "Enter Card Number",
-                  weight: FontWeight.w600,
                 ),
                 const SizedBox(height: 20),
 
@@ -146,13 +140,10 @@ class _AddNewCardState extends State<AddNewCard> {
                     fontSize: 14,
                   ),
                 ),
-                TextFields(
+                const SizedBox(height: 12),
+                BoxTextFields(
                   controller: exp,
-                  obscureText: false,
-                  suffixIcon: null,
-                  color: ColorData.black,
                   hintText: "Enter Exp Date",
-                  weight: FontWeight.w600,
                 ),
                 const SizedBox(height: 20),
 
@@ -164,13 +155,10 @@ class _AddNewCardState extends State<AddNewCard> {
                     fontSize: 14,
                   ),
                 ),
-                TextFields(
+                const SizedBox(height: 12),
+                BoxTextFields(
                   controller: cvv,
-                  obscureText: false,
-                  suffixIcon: null,
-                  color: ColorData.black,
                   hintText: "Enter CVV",
-                  weight: FontWeight.w600,
                 ),
                 const SizedBox(height: 60),
 

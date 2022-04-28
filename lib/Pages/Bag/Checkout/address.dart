@@ -63,13 +63,10 @@ class _AddressPageState extends State<AddressPage> {
                     fontSize: 14,
                   ),
                 ),
-                TextFields(
+                const SizedBox(height: 12),
+                BoxTextFields(
                   controller: name,
-                  obscureText: false,
-                  suffixIcon: null,
-                  color: ColorData.black,
                   hintText: "Enter Name",
-                  weight: FontWeight.w600,
                 ),
                 const SizedBox(height: 20),
 
@@ -81,16 +78,12 @@ class _AddressPageState extends State<AddressPage> {
                     fontSize: 14,
                   ),
                 ),
-                TextFields(
+                const SizedBox(height: 12),
+                BoxTextFields(
                   controller: country,
-                  obscureText: false,
-                  suffixIcon: null,
-                  color: ColorData.black,
                   hintText: "Enter Country",
-                  weight: FontWeight.w600,
                 ),
                 const SizedBox(height: 20),
-
                 //CITY
                 Text(
                   "City",
@@ -99,13 +92,10 @@ class _AddressPageState extends State<AddressPage> {
                     fontSize: 14,
                   ),
                 ),
-                TextFields(
+                const SizedBox(height: 12),
+                BoxTextFields(
                   controller: city,
-                  obscureText: false,
-                  suffixIcon: null,
-                  color: ColorData.black,
                   hintText: "Enter City",
-                  weight: FontWeight.w600,
                 ),
                 const SizedBox(height: 20),
 
@@ -117,13 +107,10 @@ class _AddressPageState extends State<AddressPage> {
                     fontSize: 14,
                   ),
                 ),
-                TextFields(
+                const SizedBox(height: 12),
+                BoxTextFields(
                   controller: phnNumber,
-                  obscureText: false,
-                  suffixIcon: null,
-                  color: ColorData.black,
                   hintText: "Enter Phone Number",
-                  weight: FontWeight.w600,
                 ),
                 const SizedBox(height: 20),
 
@@ -135,13 +122,10 @@ class _AddressPageState extends State<AddressPage> {
                     fontSize: 14,
                   ),
                 ),
-                TextFields(
+                const SizedBox(height: 12),
+                BoxTextFields(
                   controller: address,
-                  obscureText: false,
-                  suffixIcon: null,
-                  color: ColorData.black,
                   hintText: "Enter Address",
-                  weight: FontWeight.w600,
                 ),
                 const SizedBox(height: 20),
 
