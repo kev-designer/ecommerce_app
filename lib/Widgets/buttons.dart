@@ -129,6 +129,7 @@ class IconOutlinedButton extends StatelessWidget {
         primary: buttonColor,
         side: const BorderSide(
           color: ColorData.primary,
+          width: 1.5,
         ),
         elevation: 0,
         shape: RoundedRectangleBorder(
@@ -140,7 +141,7 @@ class IconOutlinedButton extends StatelessWidget {
       },
       child: Container(
         alignment: Alignment.center,
-        height: 50,
+        height: 55,
         width: double.infinity,
         decoration: const BoxDecoration(
           color: ColorData.ligthPurple,
@@ -151,7 +152,10 @@ class IconOutlinedButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(svgIcon),
+            SvgPicture.asset(
+              svgIcon,
+              height: 24,
+            ),
             const SizedBox(width: 12),
             ButtonText(
               textName,

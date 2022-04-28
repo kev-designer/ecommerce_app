@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/Pages/Bag/Checkout/address.dart';
 import 'package:ecommerce_app/Widgets/buttons.dart';
 import 'package:ecommerce_app/Widgets/colors.dart';
 import 'package:ecommerce_app/Widgets/const.dart';
@@ -7,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../Data/new_arrival_data.dart';
 import 'Checkout/order_confirmed.dart';
+import 'Checkout/payment.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({Key key}) : super(key: key);
@@ -204,23 +206,32 @@ class _CartPageState extends State<CartPage> {
                 const SizedBox(height: 20),
 
                 //DELIVERY TEXT
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Delivery Address",
-                      style: GoogleFonts.lato(
-                        fontSize: height(context) * .022,
-                        color: ColorData.black,
-                        fontWeight: FontWeight.w600,
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const AddressPage(),
+                        ));
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Delivery Address",
+                        style: GoogleFonts.lato(
+                          fontSize: height(context) * .022,
+                          color: ColorData.black,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                    ),
-                    SvgPicture.asset(
-                      "assets/svg/showmore.svg",
-                      height: height(context) * .022,
-                    ),
-                  ],
+                      SvgPicture.asset(
+                        "assets/svg/showmore.svg",
+                        height: height(context) * .022,
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 20),
                 Row(
@@ -280,23 +291,32 @@ class _CartPageState extends State<CartPage> {
                 const SizedBox(height: 20),
 
                 //PAYMENT TEXT
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Payment Method",
-                      style: GoogleFonts.lato(
-                        fontSize: height(context) * .022,
-                        color: ColorData.black,
-                        fontWeight: FontWeight.w600,
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const PaymentPage(),
+                        ));
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Payment Method",
+                        style: GoogleFonts.lato(
+                          fontSize: height(context) * .022,
+                          color: ColorData.black,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                    ),
-                    SvgPicture.asset(
-                      "assets/svg/showmore.svg",
-                      height: height(context) * .022,
-                    ),
-                  ],
+                      SvgPicture.asset(
+                        "assets/svg/showmore.svg",
+                        height: height(context) * .022,
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 20),
                 Row(

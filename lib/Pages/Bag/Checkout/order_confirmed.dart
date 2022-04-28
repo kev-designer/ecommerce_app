@@ -2,10 +2,8 @@ import 'package:ecommerce_app/Pages/Bottom%20Nav/bottom_navbar.dart';
 import 'package:ecommerce_app/Widgets/buttons.dart';
 import 'package:ecommerce_app/Widgets/colors.dart';
 import 'package:ecommerce_app/Widgets/const.dart';
-import 'package:ecommerce_app/Widgets/textbox.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:flutter_switch/flutter_switch.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class OrderConfirmed extends StatefulWidget {
