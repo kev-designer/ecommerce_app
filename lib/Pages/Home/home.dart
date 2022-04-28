@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/Pages/Home/detail_page.dart';
 import 'package:ecommerce_app/Widgets/colors.dart';
 import 'package:ecommerce_app/Widgets/const.dart';
 import 'package:ecommerce_app/Widgets/textbox.dart';
@@ -195,14 +196,25 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Stack(
                         children: [
-                          Container(
-                            height: 220,
-                            width: 190,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12),
-                              image: DecorationImage(
-                                image: AssetImage(newArrivalData.image),
-                                fit: BoxFit.cover,
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      DetailPage(newArrivalData),
+                                ),
+                              );
+                            },
+                            child: Container(
+                              height: 220,
+                              width: 190,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                image: DecorationImage(
+                                  image: AssetImage(newArrivalData.image),
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                           ),
