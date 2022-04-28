@@ -4,7 +4,6 @@ import 'package:ecommerce_app/Widgets/const.dart';
 import 'package:ecommerce_app/Widgets/textbox.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:flutter_switch/flutter_switch.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AddNewCard extends StatefulWidget {
@@ -19,6 +18,12 @@ class _AddNewCardState extends State<AddNewCard> {
   TextEditingController cardNumber = TextEditingController();
   TextEditingController exp = TextEditingController();
   TextEditingController cvv = TextEditingController();
+  int _currentIndex = 0;
+  List<String> inCardImage = [
+    "assets/images/master.png",
+    "assets/images/master.png",
+    "assets/images/master.png",
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +47,7 @@ class _AddNewCardState extends State<AddNewCard> {
                     ),
                     const SizedBox(width: 20),
                     Text(
-                      "Payment",
+                      "Add New Card",
                       style: GoogleFonts.lato(
                         fontSize: height(context) * .022,
                         color: ColorData.black,
@@ -51,31 +56,51 @@ class _AddNewCardState extends State<AddNewCard> {
                     )
                   ],
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 40),
 
-                //CARD
-                Container(
-                  height: 200,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    // color: ColorData.primary,
-                    image: const DecorationImage(
-                      image: AssetImage("assets/images/card1.png"),
-                      fit: BoxFit.cover,
+                //ITEMS
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: List.generate(
+                    inCardImage.length,
+                    (index) => GestureDetector(
+                      onTap: () => setState(
+                        () {
+                          _currentIndex = index;
+                        },
+                      ),
+                      child: Container(
+                        width: 90,
+                        height: 45,
+                        margin: const EdgeInsets.only(right: 16),
+                        padding: const EdgeInsets.only(
+                            left: 10, right: 10, top: 8, bottom: 8),
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                              color: _currentIndex == index
+                                  ? const Color(0xffFF5F00)
+                                  : ColorData.secondary,
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                            color: _currentIndex == index
+                                ? const Color(0xffFFEEE3)
+                                : ColorData.secondary
+                            // color: Theme.of(context).primaryColor,
+                            ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              inCardImage[index],
+                              height: height(context) * .022,
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
-                //SAVE CARD BUTTON
-                IconOutlinedButton(
-                  textName: "Add new Card",
-                  onPressed: () {},
-                  svgIcon: "assets/svg/Plus.svg",
-                  textColor: ColorData.primary,
-                  buttonColor: ColorData.ligthPurple,
-                ),
-                const SizedBox(height: 24),
+                const SizedBox(height: 40),
 
                 //CARD OWNER
                 Text(
@@ -147,11 +172,11 @@ class _AddNewCardState extends State<AddNewCard> {
                   hintText: "Enter CVV",
                   weight: FontWeight.w600,
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 60),
 
-                //SAVE CARD BUTTON
+                //ADD CARD BUTTON
                 IconFilledButton(
-                  textName: "Save Card",
+                  textName: "Add Card",
                   onPressed: () {},
                   svgIcon: "",
                   textColor: ColorData.white,
